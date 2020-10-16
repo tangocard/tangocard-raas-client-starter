@@ -17,7 +17,7 @@
 
 	<groupId>com.tangocard.raas</groupId>
 	<artifactId>raas-client-starter</artifactId>
-	<version>0.0.25</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>raas-client-starter</name>
 	<description>Tango Card RaaS API Reactive Web Client Spring Starter</description>
 	<packaging>jar</packaging>

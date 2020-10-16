@@ -1,0 +1,16 @@
+{{#allParams}}{{#required}}        Assert.notNull({{paramName}}, "{{paramName}} is required");
+{{/required}}{{/allParams}}{{#bodyParams}}        Assert.notNull({{paramName}}, "{{paramName}} is required");{{/bodyParams}}
+        QueryParamsUriComponentsBuilder urlBuilder = QueryParamsUriComponentsBuilder.fromUriString("{{{path}}}"){{^queryParams}};{{/queryParams}}
+{{#queryParams}}                .queryParam("{{paramName}}", {{paramName}}){{^hasMore}};{{/hasMore}}
+{{/queryParams}}
+
+        WebClient.ResponseSpec response = handleHttpErrors(webClientBuilder.build()
+                        .method(HttpMethod.{{httpMethod}})
+                        .uri(urlBuilder.build().toString(){{#pathParams}}, {{>pathParamNames}} {{/pathParams}})
+                        {{#bodyParams}}.bodyValue({{paramName}})
+                        {{/bodyParams}}.retrieve());
+        {{#returnType}}{{#isMapContainer}}
+        ParameterizedTypeReference<{{{returnType}}}> returnType = new ParameterizedTypeReference<{{{returnType}}}>() {};
+        return response.bodyToMono(returnType);
+        {{/isMapContainer}}{{^isMapContainer}}return response.bodyTo{{^isListContainer}}Mono{{/isListContainer}}{{#isListContainer}}Flux{{/isListContainer}}({{>returnTypes}}.class);{{/isMapContainer}}{{/returnType}}{{^returnType}}
+        return response.bodyToMono(Void.class);{{/returnType}}

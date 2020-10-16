@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.tangocard.api.client.config.JacksonConfiguration,\
+com.tangocard.api.client.config.WebClientConfig
