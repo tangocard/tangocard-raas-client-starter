@@ -17,7 +17,7 @@
 
 	<groupId>com.tangocard.raas</groupId>
 	<artifactId>raas-client-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<name>raas-client-starter</name>
 	<description>Tango Card RaaS API Reactive Web Client Spring Starter</description>
 	<packaging>jar</packaging>
@@ -39,8 +39,9 @@
 		<openapi-generator.clientPackageSuffix>raas</openapi-generator.clientPackageSuffix>
 		<openapi-generator.inputSpec.source>https://integration-www.tangocard.com/raas_api_console/v2/api-docs/swagger.json</openapi-generator.inputSpec.source>
 		<maven.build-helper.version>3.2.0</maven.build-helper.version>
-		<reactor-spring.version>1.0.1.RELEASE</reactor-spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<reactor-spring.version>1.0.1.RELEASE</reactor-spring.version>
+		<revision>0.0.28</revision>
 		<!-- This is not a Spring Boot Application, so don't repackage as such -->
 		<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
