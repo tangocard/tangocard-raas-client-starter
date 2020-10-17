@@ -22,7 +22,8 @@ Always test your code thoroughly.
     - which exposes its [Swagger / OpenAPI definition](https://integration-www.tangocard.com/raas_api_console/v2/api-docs/swagger.json) 
 - **You need to obtain a platform and credentials.**
   - To get sandbox environment credentials or to ask general questions about the API, please contact us at devsupport@tangocard.com
-  - Production credentials will be given only after completing a business agreement.
+  - Production credentials will be given only after completing a business contract.
+  - For larger enterprise customers to move to production, in addition to completing a business contract, Tango Card also does a "UI review" to ensure best practices for integration, mainly to ensure brand and security compliance.
 - Once credentials are obtained, configure your [`application.properties`](src/main/resources/application.properties) or your 
 [test `application.properties`](src/test/resources/application.properties) as follows:
   - Use the credentials given to you by Tango Card.
@@ -90,6 +91,17 @@ The following log levels will behave as follows for request and response logging
 # Code Examples
 Examples of invoking the API client methods can be found in the project's [`tests/` folder](src/test/java/com/tangocard/api/client/generated/raas/).
 
+## Where is the RaaS Specific Client Code?
+All I see are tests and common code in the repo, where is the code specific to the endpoints, and their data transfer object (DTO) models?
+
+The endpoint code is generated when you build the project. It can be found in the project's Maven target folder at `target/generated-sources/src/main/java`.
+```
+mvn clean compile
+ls -Fla target/generated-sources/src/main/java/com/tangocard/api/client/generated/raas
+ls -Fla target/generated-sources/src/main/java/com/tangocard/api/client/generated/raas/model
+```
+
+## Ordering a Reward
 To create an order that orders a give card:
 ```
 // Create a unique identifier (This is your uniqe reference identifier for this order.)
@@ -138,6 +150,7 @@ try {
 }
 ```
 
+## More Example Tests
 Additional test code examples cover the following topics
 1. [Customers](src/test/java/com/tangocard/api/client/generated/raas/CustomersApiTest.java)
 2. [Accounts](src/test/java/com/tangocard/api/client/generated/raas/AccountsApiTest.java)

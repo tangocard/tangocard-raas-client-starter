@@ -1,2 +1,0 @@
-#### Default OpenAPI Generator Mustache Templates
-Templates not specified in this project are the defaults for [OpenAPI Generator - Java client generator](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources/Java) and [its Spring WebClient library](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources/Java/libraries/webclient).

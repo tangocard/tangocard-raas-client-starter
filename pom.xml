@@ -157,7 +157,7 @@
 								<library>webclient</library>
 								<booleanGetterPrefix>is</booleanGetterPrefix>
 								<dateLibrary>java8</dateLibrary>
-								<generateApiDocumentation>true</generateApiDocumentation>
+								<generateApiDocumentation>false</generateApiDocumentation>
 								<hideGenerationTimestamp>true</hideGenerationTimestamp>
 								<interfaceOnly>true</interfaceOnly>
 								<serializableModel>true</serializableModel>
