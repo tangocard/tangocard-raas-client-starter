@@ -1,17 +1,16 @@
-Tango Card's Rewards-as-a-Service API Client Spring&reg; Starter Project
-========================================================================
+# Rewards-as-a-Service API Client Generator
 
 # Summary
 
-This project is an API connectivity accelerator for making calls to the Tango Card RaaS API. 
-It is NOT a Software Development Kit (SDK).
+This project is an accelerator for building client code that exercises the Tango Card RaaS API. 
+It is not a Software Development Kit (SDK).
 
 This is also an opinionated demonstration of using code generation techniques to build the connection 
-layer to our API. As such, it is intended to accelerate the on-boarding process by providing a concrete 
-example of our suggested method of building API client code (with code generation).
+layer to our API. It is intended to accelerate the on-boarding process by providing a concrete 
+example of our suggested method of building API client code (using code generation).
  
 This code is NOT production ready as it must be integrated into your system with proper 
-security around the handling of Rewards and other sensitive information like Personally Identifiable Information (PII). 
+security around the handling of Reward secrets and other sensitive information like Personally Identifiable Information (PII). 
 Always test your code thoroughly.
 
 
@@ -45,14 +44,20 @@ Always test your code thoroughly.
     ```
     
 # Code Generation
+We do not provide any connectivity SDKs. However, we do provide the API declarations necessary
+to generate the code yourself, with free and open source technology. There are generators in all
+the major languages. If the "out of the box" generated client doesn't quite match your code, you can 
+customize the templates. This project does. Really, generating your API client code is MUCH
+easier and quicker than writing it by hand!
+
 We suggest that you use [OpenAPI Generator](https://openapi-generator.tech/) to generate your API client code.
-In fact, this project also uses OpenAPI Generator.
+This project also uses OpenAPI Generator, pointed at our [Swagger / OpenAPI definition](https://integration-www.tangocard.com/raas_api_console/v2/api-docs/swagger.json) 
 - [An Introduction to OpenAPI Generator](https://nordicapis.com/introduction-to-openapi-generator/)
   - Most popular languages are supported
   - C++
   - C#
   - Java
-  - Javascript
+  - Javascript (NOTE: You cannot call the RaaS API directly from browser code.)
   - Python
   - [And more](https://openapi-generator.tech/docs/generators)
 
@@ -69,7 +74,7 @@ In fact, this project also uses OpenAPI Generator.
     ```
     <dependency>
         <groupId>com.tangocard.raas</groupId>
-        <artifactId>tangocard-raas-client-starter</artifactId>
+        <artifactId>raas-client-starter</artifactId>
         <version>0.0.0-SNAPSHOT</version>
         <scope>compile</scope>
     </dependency>
@@ -191,12 +196,11 @@ Possible Exceptions are
 - You MUST NOT log your Platform Key or any reward credentials without redaction.
 - You SHOULD also redact any [personally identifiable information](https://en.wikipedia.org/wiki/Personal_data) (PII) you may log.
 
-## Use of OpenAPI Generator
+## OpenAPI Generator Build Integration in This Project
 The model and API client code in this project is generated from the [RaaS API Swagger / OpenAPI definition](https://integration-www.tangocard.com/raas_api_console/v2/api-docs/swagger.json)
 using custom defined [OpenAPI Generator](https://openapi-generator.tech/) templates. The custom templates are
-based on the Java Spring WebClient and are specific to this Auto-configure Spring Starter implementation.
+based on the Java Spring WebClient and are specific to this project.
 
-### Build Integration
 Maven is the build tool for this project. The OpenAPI Code generation step is implemented with the 
 [OpenAPI Generator Plugin](https://openapi-generator.tech/docs/plugins/) and is bound to the `generate-sources` phase.
 Plugin configurations are specific to this project with special consideration to code generation templates 

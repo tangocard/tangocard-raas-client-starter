@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,9 +41,9 @@ public class JacksonConfiguration {
      * @return
      */
     @Bean
-    @Primary
     @ConditionalOnMissingBean(name = "objectMapper")
-    public ObjectMapper objectMapper() {
+    @Qualifier("raasObjectMapper")
+    public ObjectMapper raasObjectMapper() {
         return newConfiguredObjectMapper();
     }
 

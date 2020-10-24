@@ -41,7 +41,7 @@
 		<maven.build-helper.version>3.2.0</maven.build-helper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<reactor-spring.version>1.0.1.RELEASE</reactor-spring.version>
-		<revision>0.0.29</revision>
+		<revision>0.0.30</revision>
 		<!-- This is not a Spring Boot Application, so don't repackage as such -->
 		<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
